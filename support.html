@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Studio Foam</title>
+    <meta name="description" content="Get help with Flash Forward and other Studio Foam apps. Find answers to common questions or contact us directly.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Animated foam background -->
+    <div class="foam-bg">
+        <svg class="foam-cells" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+                <linearGradient id="cellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1b263b;stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:0.4" />
+                </linearGradient>
+            </defs>
+            <path class="foam-cell" d="M150,100 Q200,50 280,80 Q350,100 380,180 Q400,260 350,320 Q280,380 200,350 Q120,320 100,240 Q80,160 150,100 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
+            <path class="foam-cell" d="M450,150 Q520,100 600,140 Q680,180 700,270 Q720,360 660,420 Q580,480 500,440 Q420,400 400,310 Q380,220 450,150 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
+            <path class="foam-cell" d="M750,80 Q830,40 900,90 Q970,140 980,230 Q990,320 930,380 Q860,440 780,400 Q700,360 690,270 Q680,180 750,80 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
+            <path class="foam-cell" d="M100,450 Q180,400 260,440 Q340,480 360,570 Q380,660 320,720 Q240,780 160,740 Q80,700 60,610 Q40,520 100,450 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">◉</span>
+                <span class="logo-text">Studio Foam</span>
+            </a>
+            <div class="nav-links">
+                <a href="flash-forward.html" class="nav-link">Flash Forward</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="support.html" class="nav-link">Support</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu">
+        <a href="flash-forward.html" class="mobile-link">Flash Forward</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="support.html" class="mobile-link">Support</a>
+    </div>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="section-label">Support</span>
+        <h1 class="section-title">How Can We Help?</h1>
+        <p class="section-subtitle">Find answers to common questions or reach out directly.</p>
+    </header>
+
+    <!-- FAQ Section -->
+    <section class="content-section">
+        <h2 class="section-title mb-lg">Frequently Asked Questions</h2>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How do I create a training plan?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>In Flash Forward, tap the "+" button on the main screen to create a new session. From there, you can add workouts and exercises, set your timing parameters, and organize everything to match your training goals. Each session can contain multiple workouts, and each workout can have multiple exercises with customizable sets, reps, and rest periods.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can I edit my workout while it's in progress?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Flash Forward supports mid-session editing. You can add or remove exercises, adjust sets and reps, and modify your plan on the fly without losing your progress. This is especially useful when you need to adapt based on how you're feeling or equipment availability.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What timing options are available?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Flash Forward provides detailed timing control including: time per rep (for timed exercises like hangs), time between reps, time between sets, and workout rest periods. You can also extend timers when needed and pause/resume your session at any point.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is Flash Forward only for climbers?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>While Flash Forward was designed with climbers in mind, it works great for any structured training. The app supports strength training, calisthenics, yoga, flexibility work, and skills training. Anyone who wants precise control over their workout timing and structure will find it useful.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How do I delete my account and data?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>You can request deletion of your account and all associated data through our <a href="delete-data.html">Delete My Data</a> page. We'll process your request and permanently remove your data from our systems within 30 days.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Is my data backed up?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>If you have an account, your training plans and session data are synced to the cloud and backed up automatically. You can access your data from any device by signing in with the same account. Local data (without an account) stays on your device only.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How do I report a bug?</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Please email us at <a href="mailto:support@studiofoam.dev">support@studiofoam.dev</a> with a description of the bug, steps to reproduce it, and your device/OS version. Screenshots or screen recordings are incredibly helpful! We read every report and prioritize fixes based on impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section">
+        <h2 class="section-title mb-lg">Still Need Help?</h2>
+        
+        <div class="contact-card">
+            <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </div>
+            <div class="contact-info">
+                <h3>Email Support</h3>
+                <p>Reach out to <a href="mailto:support@studiofoam.dev">support@studiofoam.dev</a> and we'll get back to you as soon as possible.</p>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+            </div>
+            <div class="contact-info">
+                <h3>Privacy & Data</h3>
+                <p>Questions about your data? Read our <a href="privacy-policy.html">Privacy Policy</a> or <a href="delete-data.html">request data deletion</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-icon">◉</span>
+                        <span class="logo-text">Studio Foam</span>
+                    </a>
+                    <p class="footer-tagline">Crafting focused apps for training enthusiasts.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Products</h4>
+                        <a href="flash-forward.html">Flash Forward</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="delete-data.html">Delete My Data</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Studio Foam. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
