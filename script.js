@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initSmoothScroll();
     initScrollAnimations();
-    initFoamAnimation();
 });
 
 /**
@@ -184,75 +183,7 @@ function validateForm(formElement) {
     return isValid;
 }
 
-/**
- * Voronoi-like Foam Animation
- * Why: Creates organic, expanding/contracting foam cells that share edges
- * How: Assigns alternating expand/contract phases so neighbors move in opposition
- */
-function initFoamAnimation() {
-    const foamCells = document.querySelectorAll('.foam-cell:not(.interstitial)');
-    const interstitialCells = document.querySelectorAll('.foam-cell.interstitial');
-    
-    if (!foamCells.length) return;
-    
-    // Wait for SVG to be fully rendered
-    const svg = document.querySelector('.foam-cells');
-    if (!svg) return;
-    
-    // Use requestAnimationFrame to ensure SVG is rendered
-    requestAnimationFrame(() => {
-        // Assign alternating phases to main cells for asymmetric expansion/contraction
-        foamCells.forEach((cell, index) => {
-            try {
-                // Get bounding box to calculate center
-                const bbox = cell.getBBox();
-                const centerX = bbox.x + bbox.width / 2;
-                const centerY = bbox.y + bbox.height / 2;
-                
-                // Set transform origin to cell center (in SVG coordinates)
-                cell.style.transformOrigin = `${centerX}px ${centerY}px`;
-                
-                // Alternate between expand and contract phases
-                // This creates the asymmetric effect where neighbors move in opposition
-                if (index % 2 === 1) {
-                    cell.classList.add('phase-contract');
-                }
-                
-                // Add slight delay variation for organic feel
-                const baseDelay = index * -1.5;
-                const randomOffset = (Math.random() - 0.5) * 0.8;
-                cell.style.animationDelay = `${baseDelay + randomOffset}s`;
-                
-                // Slight duration variation
-                const durationVariation = (Math.random() - 0.5) * 2;
-                cell.style.animationDuration = `${20 + durationVariation}s`;
-            } catch (e) {
-                // Fallback to center if getBBox fails
-                cell.style.transformOrigin = 'center center';
-            }
-        });
-        
-        // Handle interstitial cells separately (can be circles or paths)
-        interstitialCells.forEach((cell, index) => {
-            try {
-                const bbox = cell.getBBox();
-                const centerX = bbox.x + bbox.width / 2;
-                const centerY = bbox.y + bbox.height / 2;
-                cell.style.transformOrigin = `${centerX}px ${centerY}px`;
-                
-                // Random delays for interstitial cells - more variation
-                const delay = index * -0.6 + (Math.random() - 0.5) * 1.5;
-                cell.style.animationDelay = `${delay}s`;
-                
-                // Vary duration for interstitial cells
-                const duration = 5 + (Math.random() - 0.5) * 1.5;
-                cell.style.animationDuration = `${duration}s`;
-            } catch (e) {
-                cell.style.transformOrigin = 'center center';
-            }
-        });
-    });
-}
+
 
 // Export for potential use in other scripts
 window.StudioFoam = {

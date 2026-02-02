@@ -68,14 +68,24 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================================
+   New Liquid Tide Background
+   ================================ */
 body {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
     color: var(--color-text-primary);
-    background-color: var(--color-bg-primary);
-    overflow-x: hidden;
-    min-height: 100vh;
+    /* A smooth, slow-moving gradient that feels like deep water */
+    background: linear-gradient(-45deg, #0a1118, #0f1a24, #162531, #0a1118);
+    background-size: 400% 400%;
+    animation: tideGradient 15s ease infinite;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes tideGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 a {
@@ -97,108 +107,7 @@ button {
     background: none;
 }
 
-/* ================================
-   Foam Background Animation
-   ================================ */
-.foam-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
 
-.foam-cells {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    background: #050508;
-}
-
-.foam-cell {
-    animation: foam-expand 20s ease-in-out infinite;
-    transform-origin: center center;
-    will-change: transform, opacity;
-    stroke: none;
-}
-
-/* Bright white glowing foam walls between cells - prominent feature */
-.foam-wall {
-    animation: wall-pulse 18s ease-in-out infinite;
-    opacity: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    mix-blend-mode: screen;
-}
-
-@keyframes wall-pulse {
-
-    0%,
-    100% {
-        opacity: 0.95;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-/* Default to expand animation, JavaScript will assign phases */
-.foam-cell.phase-contract {
-    animation: foam-contract 20s ease-in-out infinite;
-}
-
-/* Two phases: expand and contract - cells alternate phases */
-@keyframes foam-expand {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.06);
-        opacity: 1;
-    }
-}
-
-@keyframes foam-contract {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(0.94);
-        opacity: 0.98;
-    }
-}
-
-/* Small interstitial cells animation - faster and more visible */
-.foam-cell.interstitial {
-    animation: foam-pulse 6s ease-in-out infinite;
-    opacity: 1;
-}
-
-@keyframes foam-pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.12);
-        opacity: 1;
-    }
-}
 
 /* ================================
    Navigation
