@@ -12,29 +12,6 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
-    <!-- Animated foam background -->
-    <div class="foam-bg">
-        <svg class="foam-cells" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
-            <defs>
-                <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge>
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-                <linearGradient id="cellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1b263b;stop-opacity:0.6" />
-                    <stop offset="100%" style="stop-color:#0d1b2a;stop-opacity:0.4" />
-                </linearGradient>
-            </defs>
-            <path class="foam-cell" d="M150,100 Q200,50 280,80 Q350,100 380,180 Q400,260 350,320 Q280,380 200,350 Q120,320 100,240 Q80,160 150,100 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
-            <path class="foam-cell" d="M450,150 Q520,100 600,140 Q680,180 700,270 Q720,360 660,420 Q580,480 500,440 Q420,400 400,310 Q380,220 450,150 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
-            <path class="foam-cell" d="M750,80 Q830,40 900,90 Q970,140 980,230 Q990,320 930,380 Q860,440 780,400 Q700,360 690,270 Q680,180 750,80 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
-            <path class="foam-cell" d="M100,450 Q180,400 260,440 Q340,480 360,570 Q380,660 320,720 Q240,780 160,740 Q80,700 60,610 Q40,520 100,450 Z" fill="url(#cellGradient)" filter="url(#glow)"/>
-        </svg>
-    </div>
-
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">

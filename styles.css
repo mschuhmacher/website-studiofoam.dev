@@ -2,23 +2,29 @@
    CSS Custom Properties (Variables)
    ================================ */
 :root {
-    /* Colors - Dark theme with blue accents */
-    --color-bg-primary: #050508;
-    --color-bg-secondary: #0a0a0f;
-    --color-bg-tertiary: #0d1b2a;
-    --color-bg-card: rgba(13, 27, 42, 0.5);
-    --color-bg-card-hover: rgba(27, 38, 59, 0.6);
+    /* Colors - Beach theme: cyan, white, sandy-yellow */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f5e6c8;
+    --color-bg-tertiary: #e8d5a8;
+    --color-bg-card: rgba(255, 255, 255, 0.7);
+    --color-bg-card-hover: rgba(255, 255, 255, 0.9);
 
-    --color-text-primary: #e8eaed;
-    --color-text-secondary: #9aa0a6;
-    --color-text-muted: #5f6368;
+    --color-text-primary: #1a2a3a;
+    --color-text-secondary: #4a5568;
+    --color-text-muted: #718096;
 
-    --color-accent: #00d4ff;
-    --color-accent-glow: rgba(0, 212, 255, 0.3);
-    --color-accent-subtle: rgba(0, 212, 255, 0.1);
+    --color-accent: #00b4d8;
+    --color-accent-glow: rgba(0, 180, 216, 0.3);
+    --color-accent-subtle: rgba(0, 180, 216, 0.1);
 
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-hover: rgba(255, 255, 255, 0.15);
+    --color-border: rgba(0, 0, 0, 0.08);
+    --color-border-hover: rgba(0, 0, 0, 0.15);
+
+    /* Beach-specific colors */
+    --color-sand: #f5e6c8;
+    --color-sand-deep: #e8d5a8;
+    --color-ocean: #00b4d8;
+    --color-ocean-light: #48cae4;
 
     /* Typography */
     --font-display: 'Space Grotesk', sans-serif;
@@ -68,14 +74,32 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* ================================
+   New Liquid Tide Background
+   ================================ */
 body {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
     color: var(--color-text-primary);
-    background-color: var(--color-bg-primary);
-    overflow-x: hidden;
+    background: linear-gradient(
+        180deg,
+        var(--color-ocean) 0%,
+        var(--color-ocean) 8%,
+        var(--color-ocean-light) 14%,
+        #ffffff 22%,
+        #ffffff 70%,
+        var(--color-sand) 90%,
+        var(--color-sand-deep) 100%
+    );
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
+}
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-attachment: scroll;
+    }
 }
 
 a {
@@ -97,108 +121,7 @@ button {
     background: none;
 }
 
-/* ================================
-   Foam Background Animation
-   ================================ */
-.foam-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
 
-.foam-cells {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    background: #050508;
-}
-
-.foam-cell {
-    animation: foam-expand 20s ease-in-out infinite;
-    transform-origin: center center;
-    will-change: transform, opacity;
-    stroke: none;
-}
-
-/* Bright white glowing foam walls between cells - prominent feature */
-.foam-wall {
-    animation: wall-pulse 18s ease-in-out infinite;
-    opacity: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    mix-blend-mode: screen;
-}
-
-@keyframes wall-pulse {
-
-    0%,
-    100% {
-        opacity: 0.95;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-/* Default to expand animation, JavaScript will assign phases */
-.foam-cell.phase-contract {
-    animation: foam-contract 20s ease-in-out infinite;
-}
-
-/* Two phases: expand and contract - cells alternate phases */
-@keyframes foam-expand {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.06);
-        opacity: 1;
-    }
-}
-
-@keyframes foam-contract {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(0.94);
-        opacity: 0.98;
-    }
-}
-
-/* Small interstitial cells animation - faster and more visible */
-.foam-cell.interstitial {
-    animation: foam-pulse 6s ease-in-out infinite;
-    opacity: 1;
-}
-
-@keyframes foam-pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.12);
-        opacity: 1;
-    }
-}
 
 /* ================================
    Navigation
@@ -210,9 +133,7 @@ button {
     right: 0;
     z-index: 100;
     padding: var(--space-md) 0;
-    background: linear-gradient(to bottom, var(--color-bg-primary), transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--color-ocean);
 }
 
 .nav-container {
@@ -231,10 +152,11 @@ button {
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.25rem;
+    color: #ffffff;
 }
 
 .logo-icon {
-    color: var(--color-accent);
+    color: #ffffff;
     font-size: 1.5rem;
     animation: pulse-glow 3s ease-in-out infinite;
 }
@@ -258,7 +180,7 @@ button {
 
 .nav-link {
     font-size: 0.95rem;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     position: relative;
     padding: var(--space-xs) 0;
 }
@@ -270,13 +192,13 @@ button {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--color-accent);
+    background: #ffffff;
     transition: width var(--transition-base);
     border-radius: 2px;
 }
 
 .nav-link:hover {
-    color: var(--color-text-primary);
+    color: #ffffff;
 }
 
 .nav-link:hover::after {
@@ -294,7 +216,7 @@ button {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-text-primary);
+    background: #ffffff;
     border-radius: 2px;
     transition: var(--transition-base);
 }
@@ -306,7 +228,9 @@ button {
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--color-bg-secondary);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-lg);
     flex-direction: column;
@@ -380,7 +304,7 @@ button {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
     background: var(--color-accent-subtle);
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    border: 1px solid rgba(0, 180, 216, 0.2);
     border-radius: 100px;
     font-size: 0.85rem;
     color: var(--color-accent);
@@ -401,7 +325,7 @@ button {
 }
 
 .title-line.accent {
-    background: linear-gradient(135deg, var(--color-accent), #00ff88);
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -441,20 +365,22 @@ button {
 }
 
 .btn-primary:hover {
-    background: #00e5ff;
-    box-shadow: 0 0 30px var(--color-accent-glow);
+    background: #00c4ef;
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-sand-deep);
 }
 
 .btn-secondary:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
+    background: var(--color-sand);
+    border-color: var(--color-sand-deep);
+    color: var(--color-text-primary);
+    transform: translateY(-2px);
 }
 
 /* Hero Visual / Phone Mockup */
@@ -476,9 +402,9 @@ button {
     border-radius: 40px;
     padding: 12px;
     box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 25px 50px -12px rgba(0, 0, 0, 0.5),
-        0 0 100px var(--color-accent-glow);
+        0 0 0 1px rgba(0, 0, 0, 0.1),
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 60px var(--color-accent-glow);
     position: relative;
     overflow: hidden;
 }
@@ -560,7 +486,7 @@ button {
 
 .workout-progress {
     height: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     margin-top: var(--space-sm);
     overflow: hidden;
@@ -637,7 +563,7 @@ button {
    Featured Section
    ================================ */
 .featured {
-    background: linear-gradient(180deg, transparent, var(--color-bg-secondary) 20%, var(--color-bg-secondary) 80%, transparent);
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0.5) 80%, transparent);
     position: relative;
 }
 
@@ -649,7 +575,7 @@ button {
     transform: translateX(-50%);
     width: 80%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    background: linear-gradient(90deg, transparent, rgba(0, 180, 216, 0.3), transparent);
 }
 
 .featured-header {
@@ -677,6 +603,7 @@ button {
     transition: var(--transition-base);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .feature-card::before {
@@ -695,6 +622,7 @@ button {
     background: var(--color-bg-card-hover);
     border-color: var(--color-border-hover);
     transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 .feature-card:hover::before {
@@ -770,7 +698,7 @@ button {
    ================================ */
 .footer {
     background: var(--color-bg-secondary);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: var(--space-4xl);
 }
 
@@ -919,6 +847,7 @@ button {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: var(--space-2xl);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .content-card h2 {
@@ -1115,7 +1044,7 @@ button {
 .form-group select {
     width: 100%;
     padding: var(--space-md);
-    background: var(--color-bg-secondary);
+    background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     color: var(--color-text-primary);
